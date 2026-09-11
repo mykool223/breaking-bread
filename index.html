@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breaking Bread — Privacy</title>
+<style>
+  :root {
+    --paper: #FBF7EF; --ink: #112223; --soft: #3D5556;
+    --tint: #1D494C; --crust: #AE5A2D; --rule: #E2DACA; --surface: #FFFDF8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0D1A1B; --ink: #E9E4D7; --soft: #99A188;
+      --tint: #3E9CA2; --crust: #D9885C; --rule: #263B3C; --surface: #142628;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--ink); margin: 0;
+    padding: 3rem 1.25rem 6rem; line-height: 1.65;
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 40rem; margin: 0 auto; }
+  h1 { font-size: clamp(2rem, 6vw, 2.6rem); line-height: 1.1; margin: 0 0 .5rem;
+       letter-spacing: -.02em; }
+  h2 { font-size: 1.3rem; margin: 2.75rem 0 .5rem; letter-spacing: -.01em;
+       padding-bottom: .4rem; border-bottom: 1px solid var(--rule); }
+  h3 { font-size: 1.05rem; margin: 1.75rem 0 .35rem; color: var(--tint); }
+  p { margin: 0 0 1rem; }
+  ul { padding-left: 1.15rem; }
+  li { margin-bottom: .4rem; }
+  li::marker { color: var(--crust); }
+  code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
+         background: var(--surface); padding: .1em .35em; border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; margin: 1.25rem 0;
+          display: block; overflow-x: auto; }
+  td { padding: .6rem .8rem; border-bottom: 1px solid var(--rule);
+       vertical-align: top; font-size: .95rem; }
+  tr:first-child td { font-weight: 600; color: var(--soft); font-size: .82rem;
+                      text-transform: uppercase; letter-spacing: .06em; }
+  strong { font-weight: 600; }
+  footer { max-width: 40rem; margin: 4rem auto 0; padding-top: 1.25rem;
+           border-top: 1px solid var(--rule); color: var(--soft); font-size: .85rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>Privacy</h1>
+<p>Breaking Bread is a Bible study app for a men's group. This says exactly what it</p>
+<p>stores, who can read it, and what leaves your phone.</p>
+<p>Last updated 11 September 2026.</p>
+<h2>What it stores</h2>
+<p><strong>Your account.</strong> An email address, and a display name you choose. There is no</p>
+<p>password — signing in is a link emailed to you.</p>
+<p><strong>What you write.</strong> Notes, highlights, bookmarks, prayer requests, messages in a</p>
+<p>study's discussion, and the studies you create. All of it is kept on our</p>
+<p>Supabase database until you delete it or delete your account.</p>
+<p><strong>Which studies you are in</strong>, and whether you have marked a week's reading as</p>
+<p>done.</p>
+<p><strong>Your device</strong>, if you turn notifications on: the notification token Apple</p>
+<p>gives us, and whether the app was built for testing or release. Nothing else</p>
+<p>about the device.</p>
+<h2>What it does not store</h2>
+<ul>
+<li><strong>No password.</strong> There isn't one to lose.</li>
+<li><strong>No location, contacts, photos, or health data.</strong> The app never asks.</li>
+<li><strong>No analytics, no advertising, no tracking.</strong> There is no third-party</li>
+</ul>
+<p>  analytics library in the app, and nothing is sold or shared with anyone.</p>
+<ul>
+<li><strong>No scripture reading history.</strong> Which chapters you open is not recorded</li>
+</ul>
+<p>  anywhere. Only what you deliberately mark or write is kept.</p>
+<h2>Who can read what</h2>
+<p>This is enforced by the database itself, not by the app being careful.</p>
+<table><tbody>
+<tr><td></td><td>Who can read it</td></tr>
+<tr><td>Your notes</td><td>Only you, unless you share one to a study</td></tr>
+<tr><td>A note shared to a study</td><td>The men in that study</td></tr>
+<tr><td>Your highlights and bookmarks</td><td>Only you. There is no way to share them</td></tr>
+<tr><td>Your folders</td><td>Only you, even when a note inside is shared</td></tr>
+<tr><td>Prayer requests</td><td>The men in that study</td></tr>
+<tr><td><strong>Anonymous prayer requests</strong></td><td>The men in that study see the request. <strong>Nobody but you can see it was yours</strong> — the author is withheld at the database, not hidden by the app</td></tr>
+<tr><td>Discussion messages</td><td>The men in that study</td></tr>
+<tr><td>Your name and bio</td><td>Men who share a study with you</td></tr>
+<tr><td>Your notification token</td><td>Nobody. Only our server reads it, to send you a notification</td></tr>
+</tbody></table>
+<p>Men in different studies cannot see each other's anything.</p>
+<h2>Camera and microphone</h2>
+<p>Used only during a live study, and only while you are in the room.</p>
+<p>The leader's camera and microphone are used so the group can see and hear the</p>
+<p>teaching. Everyone else has a microphone available and **cannot turn a camera</p>
+<p>on at all** — the permission to publish video is granted per person by our</p>
+<p>server and refused for everyone but the leader.</p>
+<p><strong>Nothing is recorded.</strong> Live video and audio pass through LiveKit</p>
+<p>(livekit.com) to the men in the room and are not stored by us or by them.</p>
+<h2>Where it lives</h2>
+<ul>
+<li><strong>Your data</strong> is stored by Supabase (supabase.com) in the United States.</li>
+<li><strong>Notifications</strong> go through Apple's Push Notification service. Apple sees</li>
+</ul>
+<p>  the notification text, which may include the name of a study or the first</p>
+<p>  words of a message.</p>
+<ul>
+<li><strong>Live video</strong> passes through LiveKit's servers while a session is running.</li>
+<li><strong>The Bible text</strong> is inside the app and never leaves your phone. Reading it</li>
+</ul>
+<p>  needs no connection and sends nothing anywhere.</p>
+<h2>Deleting your account</h2>
+<p>In the app: <strong>Me → Delete my account</strong>. It removes your profile, your notes,</p>
+<p>highlights, bookmarks, folders, prayer requests, messages, and any study you</p>
+<p>started that nobody else joined.</p>
+<p>If you own a study other men are in, the app will ask you to hand it over or</p>
+<p>delete it first, so a group's discussion does not disappear with you.</p>
+<p>Deletion is immediate and cannot be undone.</p>
+<h2>Children</h2>
+<p>The app is for adults in a church men's group. It is not directed at children</p>
+<p>and collects nothing knowingly from them.</p>
+<h2>Changes</h2>
+<p>If this changes, the date at the top changes with it.</p>
+<h2>Asking</h2>
+<p>Questions about any of this go to the person who runs your study group.</p>
+</main>
+<footer>Breaking Bread is a Bible study app for a men's group.</footer>
+</body>
+</html>
